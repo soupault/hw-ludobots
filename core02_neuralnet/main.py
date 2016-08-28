@@ -79,7 +79,7 @@ def create_evo_map(val):
 
 def update(val, syn, step):
     for idx_neu in range(val.shape[1]):
-        val[step, idx_neu] = np.sum(syn[idx_neu, :] * val[step-1, :])
+        val[step, idx_neu] = np.sum(syn[:, idx_neu] * val[step-1, :])
     val[step, :] = np.clip(val[step, :], 0, 1)
     return val
     
